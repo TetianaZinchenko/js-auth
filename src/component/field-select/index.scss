@@ -3,8 +3,8 @@
 
 .field--select {
   .field__select {
-    border: 1px solid s.color(box);
-    background: s.color(box);
+    border: 1px solid s.color('box');
+    background: s.color('box');
     padding: s.space(4);
     border-radius: 10px;
 
@@ -20,10 +20,10 @@
 
   .field__value {
     font-size: 14px;
-    color: s.color(dark);
+    color: s.color('dark');
 
     &--placeholder {
-      color: s.color(light);
+      color: s.color('light');
     }
   }
 
@@ -40,7 +40,7 @@
 
   .field__label--select {
     font-size: 16px;
-    color: s.color(dark);
+    color: s.color('dark');
   }
 
   .field__icon {
@@ -61,10 +61,10 @@
   .field__option-list {
     padding: s.space(4);
     display: none;
-    border: 1px solid s.color(box);
+    border: 1px solid s.color('box');
     border-radius: 10px;
     overflow: scroll;
-    background: s.color(background);
+    background: s.color('background');
     max-height: 160px;
     z-index: 1;
 
@@ -78,7 +78,7 @@
       transition: color 0.3s;
 
       &[active] {
-        color: s.color(main);
+        color: s.color('main');
 
         &:hover {
           opacity: 1;

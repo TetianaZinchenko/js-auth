@@ -1,12 +1,13 @@
 @use '../../style' as s;
 
 :root {
-  background-color: s.color(dark);
+  background-color: s.color('dark');
 }
 
 html {
   min-height: 100%;
   padding: 64px 0;
+  display: grid;
 }
 
 body {
@@ -14,10 +15,10 @@ body {
 
   max-width: 420px;
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
   height: 100%;
 
-  background-color: s.color(background);
+  background-color: s.color('background');
 
   display: flex;
 }
@@ -46,6 +47,6 @@ body {
 
   &__title {
     font-size: 24px;
-    color: s.color(dark);
+    color: s.color('dark');
   }
 }
