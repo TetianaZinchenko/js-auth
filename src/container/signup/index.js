@@ -4,6 +4,8 @@ import {
   REG_EXP_PASSWORD,
 } from '../../script/form'
 
+import { saveSession } from '../../script/session'
+
 class SignupForm extends Form {
   FIELD_NAME = {
     EMAIL: 'email',
@@ -26,7 +28,6 @@ class SignupForm extends Form {
   }
 
   validate = (name, value) => {
-    // return true
     if (String(value).length < 1) {
       return this.FIELD_ERROR.IS_EMPTY
     }
@@ -70,9 +71,6 @@ class SignupForm extends Form {
   }
 
   submit = async () => {
-    // this.checkDisabled()
-    // this.validateAll()
-
     if (this.disabled === true) {
       this.validateAll()
     } else {
@@ -93,6 +91,10 @@ class SignupForm extends Form {
 
         if (res.ok) {
           this.setAlert('success', data.message)
+
+          saveSession(data.session)
+
+          location.assign('/')
         } else {
           this.setAlert('error', data.message)
         }
@@ -100,8 +102,6 @@ class SignupForm extends Form {
         this.setAlert('error', error.message)
       }
     }
-
-    // console.log(this.value)
   }
 
   convertData = () => {

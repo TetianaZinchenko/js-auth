@@ -15,14 +15,9 @@ export class Form {
   disabled = true
 
   change = (name, value) => {
-    // console.log(name, value)
-    // if (this.validate(name, value)) this.value[name] = value
-
     const error = this.validate(name, value)
 
     this.value[name] = value
-
-    // console.log(error)
 
     if (error) {
       this.setError(name, error)
@@ -31,8 +26,6 @@ export class Form {
       this.setError(name, null)
       delete this.error[name]
     }
-
-    // this.checkValid(name, value)
 
     this.checkDisabled()
   }
@@ -66,22 +59,6 @@ export class Form {
     let disabled = false
 
     Object.values(this.FIELD_NAME).forEach((name) => {
-      // const error = this.validate(name, this.value[name])
-
-      //   if (error) {
-      //     this.setError(name, error)
-      //     disabled = true
-      //     this.error[name] = error
-      //   } else {
-      //     this.setError(name, null)
-      //     delete this.error[name]
-      //   }
-
-      // if (error) {
-      //   this.setError(name, error)
-      //   disabled = true
-      // }
-
       if (
         this.error[name] ||
         this.value[name] === undefined
@@ -103,18 +80,13 @@ export class Form {
   }
 
   validateAll = () => {
-    // let disabled = false
-
     Object.values(this.FIELD_NAME).forEach((name) => {
       const error = this.validate(name, this.value[name])
 
       if (error) {
         this.setError(name, error)
-        // disabled = true
       }
     })
-
-    // this.disabled = disabled
   }
 
   setAlert = (status, text) => {
