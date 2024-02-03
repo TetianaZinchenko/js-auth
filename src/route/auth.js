@@ -8,9 +8,21 @@ const { Confirm } = require('../class/confirm')
 const { Session } = require('../class/session')
 
 User.create({
-  email: 'test@mail.com',
+  email: 'user@mail.com',
   password: 123,
   role: 1,
+})
+
+User.create({
+  email: 'admin@mail.com',
+  password: 123,
+  role: 2,
+})
+
+User.create({
+  email: 'developer@mail.com',
+  password: 123,
+  role: 3,
 })
 
 // ================================================================
@@ -257,8 +269,6 @@ router.get('/signup-confirm', function (req, res) {
 router.post('/signup-confirm', function (req, res) {
   const { code, token } = req.body
 
-  console.log(password, code)
-
   if (!code || !token) {
     return res.status(400).json({
       message: "Помилка. Обов'язкові поля відсутні",
@@ -299,8 +309,6 @@ router.post('/signup-confirm', function (req, res) {
       message: err.message,
     })
   }
-
-  // console.log(code, token)
 })
 
 // ================================================================
